@@ -71,3 +71,27 @@ def webhook():
 
 if __name__ == "__main__":
     app.run(debug=True)
+
+if session["step"] == "main_menu":
+    lang = session["language"]
+    if incoming_msg == "1":
+        session["step"] = "upload_plan"
+        if lang == "en":
+            msg.body("📤 Great! Please upload your house floor plan (as an image or PDF).")
+        else:
+            msg.body("📤 Neza cyane! Twohereze igishushanyo cy’inzu yawe (ishusho cyangwa PDF).")
+    
+    elif incoming_msg == "2":
+        session["step"] = "generate_plan"
+        if lang == "en":
+            msg.body("🧠 No problem! Let's generate one. Please answer a few quick questions to get started.")
+        else:
+            msg.body("🧠 Nta kibazo! Reka tugufashe kugikora. Subiza ibibazo bike kugirango dutangire.")
+    
+    else:
+        if lang == "en":
+            msg.body("⚠️ Please reply with *1* or *2* to continue.")
+        else:
+            msg.body("⚠️ Nyamuneka hitamo *1* cyangwa *2* kugirango dukomeze.")
+    
+    return str(response)
