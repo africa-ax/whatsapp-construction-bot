@@ -1,4 +1,8 @@
-from flask import Flask, request
+@app.route("/")
+def home():
+    return "Construction bot is live!"
+
+from  flask import Flask, request
 from twilio.twiml.messaging_response import MessagingResponse
 
 app = Flask(__name__)
