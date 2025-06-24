@@ -1,3 +1,4 @@
+@app.route("/whatsapp", methods=["POST"])
 # app.py
 
 from flask import Flask, request
